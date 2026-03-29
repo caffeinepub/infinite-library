@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm white background */
+    --background: 0.975 0.01 85;
+    /* Dark warm brown foreground */
+    --foreground: 0.25 0.045 50;
+    /* Cream card surfaces */
+    --card: 0.985 0.018 78;
+    --card-foreground: 0.25 0.045 50;
+    --popover: 0.985 0.018 78;
+    --popover-foreground: 0.25 0.045 50;
+    /* Warm orange primary */
+    --primary: 0.68 0.155 52;
+    --primary-foreground: 0.98 0.005 80;
+    /* Light sepia secondary */
+    --secondary: 0.93 0.025 75;
+    --secondary-foreground: 0.32 0.04 52;
+    /* Muted warm beige */
+    --muted: 0.935 0.018 78;
+    --muted-foreground: 0.52 0.035 58;
+    /* Warm peach accent */
+    --accent: 0.88 0.065 65;
+    --accent-foreground: 0.25 0.045 50;
+    /* Destructive */
+    --destructive: 0.55 0.2 25;
+    --destructive-foreground: 0.98 0.01 25;
+    /* Sand/tan border */
+    --border: 0.875 0.03 72;
+    --input: 0.9 0.022 76;
+    --ring: 0.68 0.155 52;
+    --radius: 0.75rem;
+    /* Chart colors - warm palette */
+    --chart-1: 0.68 0.155 52;
+    --chart-2: 0.72 0.13 65;
+    --chart-3: 0.65 0.12 40;
+    --chart-4: 0.78 0.1 80;
+    --chart-5: 0.6 0.14 35;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--border));
+  border-radius: 2px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, oklch(0.55 0.16 45), oklch(0.62 0.14 65));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.25s ease-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bottom-nav {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
